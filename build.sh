@@ -20,7 +20,7 @@ if [ ! $ITEM ] || [ $ITEM == re2 ] ; then
   git clean -f -x -d
   make -e prefix=$PREFIX $MAKEOPTS
   make -e prefix=$PREFIX $MAKEOPTS test
-  sudo make -e prefix=$PREFIX $MAKEOPTS install
+  make -e prefix=$PREFIX $MAKEOPTS install
   make -e prefix=$PREFIX testinstall
   
 )
@@ -36,7 +36,7 @@ if [ ! $ITEM ] || [ $ITEM == cre2 ] ; then
   ../configure --enable-silent-rules --enable-maintainer-mode --prefix=$PREFIX
   make $MAKEOPTS
   make $MAKEOPTS check
-  sudo make $MAKEOPTS install
+  make $MAKEOPTS install
   make $MAKEOPTS installcheck
 )
 fi
@@ -49,7 +49,7 @@ if [ ! $ITEM ] || [ $ITEM == icu ] ; then
   mkdir -p data/out/tmp
   ./configure --enable-silent-rules --with-data-packaging=archive --prefix=$PREFIX
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -60,7 +60,7 @@ if [ ! $ITEM ] || [ $ITEM == zeroskip ] ; then
   autoreconf -v -i
   ./configure --prefix=$PREFIX
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -71,7 +71,7 @@ if [ ! $ITEM ] || [ $ITEM == jansson ] ; then
   autoreconf -v -i
   ./configure --enable-silent-rules --prefix=$PREFIX
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -86,7 +86,7 @@ if [ ! $ITEM ] || [ $ITEM == libical ] ; then
         -DUSE_BUILTIN_TZDATA=true \
         -DCMAKE_SKIP_RPATH=ON -DICAL_ALLOW_EMPTY_PROPERTIES=true ..
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -97,7 +97,7 @@ if [ ! $ITEM ] || [ $ITEM == timezones ] ; then
   autoreconf -i
   PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$PREFIX/lib/pkgconfig ./configure --prefix=$PREFIX
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -110,7 +110,7 @@ if [ ! $ITEM ] || [ $ITEM == xapian ] ; then
   ./configure --enable-silent-rules --prefix=$PREFIX
   cd xapian-core
   make $MAKEOPTS
-  sudo make install
+  make install
 )
 fi
 
@@ -123,7 +123,7 @@ if [ ! $ITEM ] || [ $ITEM == wslay ] ; then
   autoconf
   ./configure --enable-silent-rules --prefix=$PREFIX
   make
-  sudo make install
+  make install
 )
 fi
 
@@ -135,7 +135,7 @@ if [ ! $ITEM ] || [ $ITEM == libchardet ] ; then
   automake
   autoconf
   ./configure --enable-silent-rules --prefix=$PREFIX
-  sudo make install $MAKEOPTS
+  make install $MAKEOPTS
 )
 fi
 
@@ -144,6 +144,6 @@ if [ ! $ITEM ] || [ $ITEM == cld2 ] ; then
   cd cld2
   git clean -f -x -d
   ./build.sh
-  sudo ./install.sh --prefix=$PREFIX
+  ./install.sh --prefix=$PREFIX
 )
 fi
