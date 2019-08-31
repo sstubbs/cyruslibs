@@ -3,7 +3,7 @@
 # Debian 9 dependency installation script for Cyrus IMAP libs
 
 # General build dependencies (assuming git is already installed)
-BUILD_ENV_DEPS="sudo cmake check build-essential tcl autoconf automake libtool"
+BUILD_ENV_DEPS="cmake check build-essential tcl autoconf automake libtool"
 BUILD_ENV_DEPS="${BUILD_ENV_DEPS} pkg-config bison flex libssl-dev libxml2-dev"
 BUILD_ENV_DEPS="${BUILD_ENV_DEPS} uuid-dev libicu-dev texinfo"
 
